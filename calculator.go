@@ -5,6 +5,26 @@ import (
 	"fmt"
 )
 
+func tambah(x float64, y float64) {
+	var result float64 = x + y
+	fmt.Printf("%.0f + %.0f = %.0f \n", x, y, result)
+}
+
+func kurang(x float64, y float64) {
+	var result float64 = x - y
+	fmt.Printf("%.0f - %.0f = %.0f \n", x, y, result)
+}
+
+func kali(x float64, y float64) {
+	var result float64 = x * y
+	fmt.Printf("%.0f x %.0f = %.0f \n", x, y, result)
+}
+
+func bagi(x float64, y float64) {
+	var result float64 = x / y
+	fmt.Printf("%.1f : %.1f = %.1f \n", x, y, result)
+}
+
 func main() {
 	fmt.Printf("Task 1 - Calculator \n \n")
 
@@ -14,23 +34,21 @@ func main() {
 
 	flag.Parse()
 
-	var result float64
+	var a1 float64 = *angka1
+	var a2 float64 = *angka2
+
 	switch *opt {
 	case "+":
-		result = *angka1 + *angka2
-		fmt.Printf("%.0f %s %.0f = %.0f \n", *angka1, *opt, *angka2, result)
+		tambah(a1, a2)
 		break
 	case "-":
-		result = *angka1 - *angka2
-		fmt.Printf("%.0f %s %.0f = %.0f \n", *angka1, *opt, *angka2, result)
+		kurang(a1, a2)
 		break
 	case "*":
-		result = *angka1 * *angka2
-		fmt.Printf("%.0f %s %.0f = %.0f \n", *angka1, *opt, *angka2, result)
+		kali(a1, a2)
 		break
 	case "/":
-		result = *angka1 / *angka2
-		fmt.Printf("%.1f %s %.1f = %.1f \n", *angka1, *opt, *angka2, result)
+		bagi(a1, a2)
 		break
 	default:
 		fmt.Println("Masukkan input dengan benar, contoh \n -angka1=int -opt=\"simbol operator\" -angka2=int ")
